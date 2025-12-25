@@ -2,8 +2,8 @@ import attractionsData from '@/data/attractions.json';
 import AttractionCard from '../shared/AttractionCard';
 
 export default function Top10Attractions() {
-    // 获取热度最高的10个景点
-    const top10 = attractionsData.attractions
+    // 获取热度最高的10个景点（先复制数组，避免修改原数组导致Hydration错误）
+    const top10 = [...attractionsData.attractions]
         .sort((a, b) => b.popularity - a.popularity)
         .slice(0, 10);
 
